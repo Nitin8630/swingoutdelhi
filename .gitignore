@@ -1,0 +1,5 @@
+# System junk
+__MACOSX/
+.DS_Store
+**/.DS_Store
+Thumbs.db
