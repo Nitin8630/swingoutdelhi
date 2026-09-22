@@ -17,18 +17,38 @@
   var toggle = document.getElementById("navToggle");
   var menu = document.getElementById("mobileMenu");
   if (toggle && menu) {
-    toggle.addEventListener("click", function () {
+    var closeMenu = function () {
+      toggle.setAttribute("aria-expanded", "false");
+      menu.hidden = true;
+    };
+
+    toggle.addEventListener("click", function (e) {
+      e.stopPropagation();
       var open = toggle.getAttribute("aria-expanded") === "true";
       toggle.setAttribute("aria-expanded", String(!open));
       menu.hidden = open;
     });
+
     menu.addEventListener("click", function (e) {
-      if (e.target.tagName === "A") {
-        toggle.setAttribute("aria-expanded", "false");
-        menu.hidden = true;
+      if (e.target.closest("a") || e.target.closest("button")) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener("click", function (e) {
+      if (toggle.getAttribute("aria-expanded") === "true" && !toggle.contains(e.target) && !menu.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+        closeMenu();
+        toggle.focus();
       }
     });
   }
+
 
   /* ---- About dropdown ---- */
   var dd = document.querySelector(".nav__dd");

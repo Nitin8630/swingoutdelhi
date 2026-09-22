@@ -27,7 +27,7 @@
   <header class="nav" id="nav">
     <div class="wrap nav__inner">
       <a class="brand" href="#top" aria-label="Swing Out Delhi home">
-        <img src="assets/img/logo.png" alt="Swing Out Delhi" width="44" height="44" />
+        <img src="assets/img/logo.png" alt="Swing Out Delhi" width="44" height="44" decoding="async" />
         <span class="brand-editorial">
           SWING OUT
           <span>DELHI</span>
@@ -45,16 +45,35 @@
         <a href="connect.html">Connect</a>
       </nav>
 
-      <button type="button" class="btn btn--gold btn--sm nav__cta" data-rsvp="general">Book a Class &rarr;</button>
+      <div class="nav__actions">
+        <button type="button" class="btn btn--gold btn--sm nav__cta" data-rsvp="general">Book a Class &rarr;</button>
+        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle navigation menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <a href="#upcoming-classes">Upcoming Classes <span>&rarr;</span></a>
+      <a href="#week-schedule">Week Schedule <span>&rarr;</span></a>
+      <a href="#whats-on">Class Curriculum <span>&rarr;</span></a>
+      <a href="#upcoming-events">Events &amp; Socials <span>&rarr;</span></a>
+      <a href="#latest-videos">Latest Videos <span>&rarr;</span></a>
+      <a href="#community">Our Community <span>&rarr;</span></a>
+      <p class="mobile-menu__group">Explore &amp; Connect</p>
+      <a href="what-is-swing.html">What is Swing? <span>&rarr;</span></a>
+      <a href="shivi.html">Meet Shivi (Founder) <span>&rarr;</span></a>
+      <a href="volunteer.html">Volunteer With Us <span>&rarr;</span></a>
+      <a href="connect.html">Contact &amp; Venues <span>&rarr;</span></a>
+      <button type="button" class="btn btn--gold" style="width: 100%; margin-top: 0.5rem; justify-content: center;" data-rsvp="general">Book a Class &rarr;</button>
     </div>
   </header>
 
   <!-- 1 · Hero Video Banner (Full Length, Edge-to-Edge, No Padding, No Margin) -->
   <section class="hero-banner" id="top">
     <div class="hero-banner__media">
-      <video id="heroVideo" autoplay muted loop playsinline poster="assets/img/video-poster.jpg" preload="auto">
+      <video id="heroVideo" autoplay muted loop playsinline webkit-playsinline poster="assets/img/video-poster.jpg" preload="metadata">
         <source src="assets/video/dance-hero.mp4" type="video/mp4" />
-        <img src="assets/img/video-poster.jpg" alt="Swing Out Delhi dancers moving together at Depot 48" />
+        <img src="assets/img/video-poster.jpg" alt="Swing Out Delhi dancers moving together at Depot 48" decoding="async" />
       </video>
       <div class="hero-banner__overlay"></div>
 
@@ -88,7 +107,7 @@
       <div class="class-cards-grid">
         <!-- Card 1 -->
         <a class="class-preview-card" href="#whats-on" data-rsvp="class" data-rsvp-name="Absolute Beginners">
-          <img src="assets/img/smile-dance.jpg" alt="Beginners dance class" loading="lazy" />
+          <img src="assets/img/smile-dance.jpg" alt="Beginners dance class" loading="lazy" decoding="async" />
           <div class="class-preview-card__content">
             <span class="class-preview-card__level">Beginner &bull; Level 1</span>
             <h3 class="class-preview-card__title">New Dance Program For Beginners</h3>
@@ -98,7 +117,7 @@
 
         <!-- Card 2 -->
         <a class="class-preview-card" href="#whats-on" data-rsvp="class" data-rsvp-name="Intermediate Swing">
-          <img src="assets/img/two-spin.jpg" alt="Intermediate swing dancers" loading="lazy" />
+          <img src="assets/img/two-spin.jpg" alt="Intermediate swing dancers" loading="lazy" decoding="async" />
           <div class="class-preview-card__content">
             <span class="class-preview-card__level">Progression &bull; Level 2</span>
             <h3 class="class-preview-card__title">Solle Dance Program Is Available Again</h3>
@@ -108,7 +127,7 @@
 
         <!-- Card 3 -->
         <a class="class-preview-card" href="#whats-on" data-rsvp="class" data-rsvp-name="Solo Jazz & Charleston">
-          <img src="assets/img/feet-move.jpg" alt="Solo jazz footwork" loading="lazy" />
+          <img src="assets/img/feet-move.jpg" alt="Solo jazz footwork" loading="lazy" decoding="async" />
           <div class="class-preview-card__content">
             <span class="class-preview-card__level">Solo Rhythm &bull; All Levels</span>
             <h3 class="class-preview-card__title">Rescheduling Hip Hop Classes To May 20</h3>
@@ -156,6 +175,8 @@
           </div>
           <a class="link-arrow" href="#whats-on">Full schedule &rarr;</a>
         </div>
+
+        <p class="schedule-scroll-hint" aria-hidden="true">&larr; Swipe sideways to view full week &rarr;</p>
 
         <div class="schedule-table-wrap">
           <table class="schedule-table">
@@ -280,9 +301,9 @@
         <div class="video-showcase">
           <!-- Large Left Tile -->
           <div class="video-featured">
-            <video autoplay muted loop playsinline poster="assets/img/video-poster.jpg">
+            <video autoplay muted loop playsinline webkit-playsinline poster="assets/img/video-poster.jpg" preload="metadata">
               <source src="assets/video/dance-hero.mp4" type="video/mp4" />
-              <img src="assets/img/video-poster.jpg" alt="Depot 48 Friday Social" />
+              <img src="assets/img/video-poster.jpg" alt="Depot 48 Friday Social" decoding="async" />
             </video>
             <div class="video-featured__overlay">
               <h3 class="video-featured__title">GUMP</h3>
@@ -293,11 +314,11 @@
           <!-- Stacked Right Tiles -->
           <div class="video-stacked">
             <a class="video-stacked__item" href="https://www.instagram.com/swingoutdelhi/" target="_blank" rel="noopener">
-              <img src="assets/img/floor-wide.jpg" alt="Full dance floor at Depot 48" loading="lazy" />
+              <img src="assets/img/floor-wide.jpg" alt="Full dance floor at Depot 48" loading="lazy" decoding="async" />
               <span class="video-stacked__label">DOROCY</span>
             </a>
             <a class="video-stacked__item" href="https://www.instagram.com/swingoutdelhi/" target="_blank" rel="noopener">
-              <img src="assets/img/two-laugh.jpg" alt="Two dancers laughing" loading="lazy" />
+              <img src="assets/img/two-laugh.jpg" alt="Two dancers laughing" loading="lazy" decoding="async" />
               <span class="video-stacked__label">SOLLE</span>
             </a>
           </div>
@@ -358,11 +379,11 @@
         <!-- Photo carousel -->
         <div class="carousel" role="group" aria-roledescription="carousel" aria-label="Photos from Swing Out Delhi socials">
           <ul class="carousel__viewport" id="carouselViewport">
-            <li class="carousel__slide"><figure><img src="assets/img/g-07468.jpg" alt="The whole Swing Out Delhi community together for a group photo at Depot 48" loading="lazy" /><figcaption>The whole crew, together</figcaption></figure></li>
-            <li class="carousel__slide"><figure><img src="assets/img/floor-wide.jpg" alt="A full dance floor at Depot 48 under a disco ball" loading="lazy" /><figcaption>A full floor at Depot 48</figcaption></figure></li>
-            <li class="carousel__slide"><figure><img src="assets/img/two-laugh.jpg" alt="Two friends laughing while dancing together" loading="lazy" /><figcaption>Dancing with friends</figcaption></figure></li>
-            <li class="carousel__slide"><figure><img src="assets/img/two-spin.jpg" alt="Two dancers spinning, hands linked overhead" loading="lazy" /><figcaption>Spins and swing outs</figcaption></figure></li>
-            <li class="carousel__slide"><figure><img src="assets/img/g-07485.jpg" alt="Partners dancing and smiling on the floor" loading="lazy" /><figcaption>On the floor</figcaption></figure></li>
+            <li class="carousel__slide"><figure><img src="assets/img/g-07468.jpg" alt="The whole Swing Out Delhi community together for a group photo at Depot 48" loading="lazy" decoding="async" /><figcaption>The whole crew, together</figcaption></figure></li>
+            <li class="carousel__slide"><figure><img src="assets/img/floor-wide.jpg" alt="A full dance floor at Depot 48 under a disco ball" loading="lazy" decoding="async" /><figcaption>A full floor at Depot 48</figcaption></figure></li>
+            <li class="carousel__slide"><figure><img src="assets/img/two-laugh.jpg" alt="Two friends laughing while dancing together" loading="lazy" decoding="async" /><figcaption>Dancing with friends</figcaption></figure></li>
+            <li class="carousel__slide"><figure><img src="assets/img/two-spin.jpg" alt="Two dancers spinning, hands linked overhead" loading="lazy" decoding="async" /><figcaption>Spins and swing outs</figcaption></figure></li>
+            <li class="carousel__slide"><figure><img src="assets/img/g-07485.jpg" alt="Partners dancing and smiling on the floor" loading="lazy" decoding="async" /><figcaption>On the floor</figcaption></figure></li>
           </ul>
 
           <button class="carousel__btn carousel__btn--prev" id="carPrev" type="button" aria-label="Previous photo">&#8249;</button>
@@ -448,7 +469,7 @@
           <a class="btn btn--navy" href="#whats-on">Find a beginner class</a>
         </div>
         <div class="beginner__circle reveal">
-          <img src="assets/img/smile-dance.jpg" alt="A dancer smiling mid-turn on the floor at Depot 48" loading="lazy" />
+          <img src="assets/img/smile-dance.jpg" alt="A dancer smiling mid-turn on the floor at Depot 48" loading="lazy" decoding="async" />
         </div>
       </div>
     </section>
@@ -456,7 +477,7 @@
     <!-- 5 · JAZZ & LIVE MUSIC -->
     <section class="jazz" id="jazz">
       <div class="jazz__media reveal">
-        <img src="assets/img/feet-move.jpg" alt="Close-up of dancers' feet and a swishing skirt mid-step" loading="lazy" />
+        <img src="assets/img/feet-move.jpg" alt="Close-up of dancers' feet and a swishing skirt mid-step" loading="lazy" decoding="async" />
       </div>
       <div class="jazz__text reveal">
         <p class="kicker kicker--gold">Jazz &amp; live music</p>
