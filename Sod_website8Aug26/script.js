@@ -64,7 +64,7 @@
   if (heroVideo && heroVideoToggle) {
     var updateVideoUI = function (isPlaying) {
       if (heroVideoIcon) heroVideoIcon.innerHTML = isPlaying ? "&#10074;&#10074;" : "&#9658;";
-      if (heroVideoLabel) heroVideoLabel.textContent = isPlaying ? "Depot 48 Live &bull; Pause" : "Play Video";
+      if (heroVideoLabel) heroVideoLabel.textContent = isPlaying ? "Pause Video" : "Play Video";
       heroVideoToggle.setAttribute("aria-label", isPlaying ? "Pause background video" : "Play background video");
     };
 
@@ -95,7 +95,8 @@
   var eventsEl = document.getElementById("events");
   if (eventsEl && SOD.classes) {
     eventsEl.innerHTML = SOD.classes
-      .map(function (c) {
+      .map(function (c, idx) {
+        var numStr = (idx + 1) < 10 ? "0" + (idx + 1) : String(idx + 1);
         var highlightsHtml = "";
         if (c.highlights && c.highlights.length) {
           highlightsHtml =
@@ -111,7 +112,10 @@
         return (
           '<article class="event reveal" id="' + esc(c.id || "") + '">' +
             '<div class="event__top">' +
-              '<h3 class="event__name">' + esc(c.name) + "</h3>" +
+              '<div style="display:flex; align-items:center; gap:0.9rem;">' +
+                '<span class="step__n" style="font-size:1.6rem; opacity:0.85;">' + esc(numStr) + '</span>' +
+                '<h3 class="event__name">' + esc(c.name) + "</h3>" +
+              "</div>" +
               '<div class="event__tags">' +
                 (c.level ? '<span class="event__level">' + esc(c.level) + "</span>" : "") +
                 (c.tag ? '<span class="event__tag">' + esc(c.tag) + "</span>" : "") +
@@ -127,7 +131,7 @@
             '<div class="event__footer">' +
               (c.price ? '<span class="event__price">' + esc(c.price) + "</span>" : "<span></span>") +
               '<div class="event__cta">' +
-                '<button type="button" class="btn btn--gold btn--sm" data-rsvp="class" data-rsvp-name="' + esc(c.name) + '">Register &rarr;</button>' +
+                '<button type="button" class="btn btn--gold btn--sm" data-rsvp="class" data-rsvp-name="' + esc(c.name) + '">Register / RSVP &rarr;</button>' +
               "</div>" +
             "</div>" +
           "</article>"
@@ -340,10 +344,36 @@
       var handleSuccess = function () {
         rsvpForm.style.display = "none";
         if (rsvpSuccess) {
-          var detailsEl = document.getElementById("rsvpSuccessDetails");
-          if (detailsEl) {
-            detailsEl.textContent = "Registered: " + selectedItem + " for " + name;
-          }
+          var randomId = Math.floor(100000 + Math.random() * 900000);
+          rsvpSuccess.innerHTML =
+            '<div class="digital-pass">' +
+              '<div class="lanyard-clip"></div>' +
+              '<div class="lanyard-vertical" style="font-size:0.9rem; left:0.6rem;">REGISTRATION PASS</div>' +
+              '<div class="pass-header" style="padding-left:1.8rem;">' +
+                '<span class="pass-brand">SWING OUT DELHI</span>' +
+                '<span class="pass-status">CONFIRMED</span>' +
+              '</div>' +
+              '<div style="padding-left:1.8rem;">' +
+                '<h4 class="pass-name">' + esc(name) + '</h4>' +
+                '<p class="pass-event">✦ ' + esc(selectedItem) + '</p>' +
+                '<div style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; font-size:0.82rem; color:var(--text-muted); margin-bottom:1rem;">' +
+                  '<div>Role: <strong style="color:var(--text-pure);">' + esc(role) + '</strong></div>' +
+                  '<div>Attending: <strong style="color:var(--text-pure);">' + esc(partnerStatus) + '</strong></div>' +
+                '</div>' +
+                '<div class="barcode">' +
+                  '<div class="barcode-lines"></div>' +
+                  '<div class="barcode-text">PASS ID: SOD-2026-' + randomId + '</div>' +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+            '<p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1.4rem;">' +
+              'You are on the list! Confirmation and preparation details have been sent to your WhatsApp and inbox. See you on the dance floor!' +
+            '</p>' +
+            '<button type="button" class="btn btn--gold" id="rsvpDoneBtn">Done / Back to Website</button>';
+
+          var newDoneBtn = document.getElementById("rsvpDoneBtn");
+          if (newDoneBtn) newDoneBtn.addEventListener("click", closeRsvpModal);
+
           rsvpSuccess.classList.add("is-active");
         }
         rsvpForm.reset();
@@ -414,11 +444,10 @@
     var pad = function (n) { return (n < 10 ? "0" : "") + n; };
 
     var currentIndex = function () {
-      var c = viewport.scrollLeft + viewport.clientWidth / 2;
+      var scrollLeft = viewport.scrollLeft;
       var best = 0, bestDist = Infinity;
       slides.forEach(function (s, i) {
-        var mid = s.offsetLeft + s.offsetWidth / 2;
-        var d = Math.abs(mid - c);
+        var d = Math.abs(s.offsetLeft - scrollLeft);
         if (d < bestDist) { bestDist = d; best = i; }
       });
       return best;
@@ -427,14 +456,15 @@
     var goTo = function (i) {
       i = Math.max(0, Math.min(slides.length - 1, i));
       var s = slides[i];
-      viewport.scrollTo({ left: s.offsetLeft - (viewport.clientWidth - s.offsetWidth) / 2, behavior: "smooth" });
+      viewport.scrollTo({ left: s.offsetLeft, behavior: "smooth" });
     };
 
     var update = function () {
       var i = currentIndex();
       if (status) status.textContent = pad(i + 1) + " / " + pad(slides.length);
-      if (prev) prev.disabled = i <= 0;
-      if (next) next.disabled = i >= slides.length - 1;
+      var maxScroll = viewport.scrollWidth - viewport.clientWidth;
+      if (prev) prev.disabled = viewport.scrollLeft <= 5;
+      if (next) next.disabled = viewport.scrollLeft >= maxScroll - 5;
     };
 
     if (prev) prev.addEventListener("click", function () { goTo(currentIndex() - 1); });

@@ -15,111 +15,298 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600;1,9..144,900&family=Kaushan+Script&family=Barlow:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:ital,wght@0,600;0,700;0,800;1,700;1,800&family=Kaushan+Script&family=Barlow:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
-  <noscript><style>.reveal{opacity:1;transform:none}.mobile-menu{display:none}</style></noscript>
+  <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Header / Nav -->
+  <!-- Header / Navigation Bar -->
   <header class="nav" id="nav">
     <div class="wrap nav__inner">
       <a class="brand" href="#top" aria-label="Swing Out Delhi home">
-        <img src="assets/img/logo.png" alt="Swing Out Delhi" width="76" height="76" />
-        <span class="brand__text">Swing Out <em>Delhi</em></span>
+        <img src="assets/img/logo.png" alt="Swing Out Delhi" width="44" height="44" />
+        <span class="brand-editorial">
+          SWING OUT
+          <span>DELHI</span>
+        </span>
       </a>
 
       <nav class="nav__links" aria-label="Primary">
-        <a href="#whats-on">Classes</a>
+        <a href="#upcoming-classes">Classes</a>
+        <a href="#week-schedule">Schedule</a>
+        <a href="#whats-on">Curriculum</a>
         <a href="#upcoming-events">Events</a>
+        <a href="#latest-videos">Videos</a>
         <a href="#community">Community</a>
-        <a href="#jazz">Jazz</a>
+        <a href="what-is-swing.html">About</a>
         <a href="connect.html">Connect</a>
-        <div class="nav__dd">
-          <button type="button" class="nav__ddbtn" aria-expanded="false" aria-haspopup="true" aria-controls="aboutMenu">About</button>
-          <div class="nav__ddmenu" id="aboutMenu" role="menu" aria-label="About">
-            <a role="menuitem" href="what-is-swing.html">What is Swing?</a>
-            <a role="menuitem" href="shivi.html">Team</a>
-            <a role="menuitem" href="volunteer.html">Volunteer</a>
-            <a role="menuitem" href="#contact">Contact</a>
-          </div>
-        </div>
       </nav>
 
-      <button type="button" class="btn btn--sm btn--gold nav__cta" data-rsvp="general">Register / RSVP</button>
-
-      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-
-    <div class="mobile-menu" id="mobileMenu" hidden>
-      <a href="#whats-on">Classes</a>
-      <a href="#upcoming-events">Events &amp; Socials</a>
-      <a href="#community">Community</a>
-      <a href="#beginners">Beginners</a>
-      <a href="#jazz">Jazz &amp; Music</a>
-      <a href="#instagram">Instagram</a>
-      <a href="connect.html">Connect</a>
-      <p class="mobile-menu__group">About</p>
-      <a href="what-is-swing.html">What is Swing?</a>
-      <a href="shivi.html">Team</a>
-      <a href="volunteer.html">Volunteer</a>
-      <a href="#contact">Contact</a>
-      <button type="button" class="btn btn--gold" data-rsvp="general" style="margin-top:.8rem; width:100%;">Register / RSVP</button>
+      <button type="button" class="btn btn--gold btn--sm nav__cta" data-rsvp="general">Book a Class &rarr;</button>
     </div>
   </header>
 
-  <main id="main">
-    <!-- 1 · CINEMATIC DANCE VIDEO HERO -->
-    <section class="hero" id="top">
-      <div class="hero__media">
-        <video class="hero__video" id="heroVideo" autoplay muted loop playsinline poster="assets/img/video-poster.jpg" preload="auto">
-          <source src="assets/video/dance-hero.mp4" type="video/mp4" />
-          <img src="assets/img/video-poster.jpg" alt="Swing Out Delhi dancers moving together at Depot 48" />
-        </video>
+  <!-- 1 · Hero Video Banner (Full Length, Edge-to-Edge, No Padding, No Margin) -->
+  <section class="hero-banner" id="top">
+    <div class="hero-banner__media">
+      <video id="heroVideo" autoplay muted loop playsinline poster="assets/img/video-poster.jpg" preload="auto">
+        <source src="assets/video/dance-hero.mp4" type="video/mp4" />
+        <img src="assets/img/video-poster.jpg" alt="Swing Out Delhi dancers moving together at Depot 48" />
+      </video>
+      <div class="hero-banner__overlay"></div>
+
+      <div class="hero-banner__center">
+        <h1 class="hero-center-title">
+          DANCE
+          <span>ACADEMY</span>
+        </h1>
+        <p class="hero-center-sub">SWING OUT DELHI &bull; LINDY HOP &bull; JAZZ CULTURE</p>
       </div>
-      <div class="hero__overlay"></div>
 
-      <div class="wrap hero__inner">
-        <div class="hero__content">
-          <div class="hero__pill reveal">
-            <span class="hero__pill-dot"></span>
-            <span>Live Scene &bull; Depot 48 Socials &bull; Delhi NCR</span>
+      <!-- Bottom Left Play Button -->
+      <button type="button" class="hero-play-btn" id="heroVideoToggle" aria-label="Toggle background video" title="Toggle background video playback">
+        <span class="hero-play-icon" id="heroVideoIcon">&#10074;&#10074;</span>
+        <span id="heroVideoLabel">PLAY VIDEO</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- 2 · Upcoming Classes Preview -->
+  <section class="section-upcoming-classes" id="upcoming-classes">
+    <div class="wrap">
+      <div class="section-head-flex">
+        <div>
+          <p class="kicker kicker--gold">Featured Sessions</p>
+          <h2 class="section-title-italic">UPCOMING CLASSES</h2>
+        </div>
+        <a class="link-arrow" href="#whats-on">More classes &rarr;</a>
+      </div>
+
+      <div class="class-cards-grid">
+        <!-- Card 1 -->
+        <a class="class-preview-card" href="#whats-on" data-rsvp="class" data-rsvp-name="Absolute Beginners">
+          <img src="assets/img/smile-dance.jpg" alt="Beginners dance class" loading="lazy" />
+          <div class="class-preview-card__content">
+            <span class="class-preview-card__level">Beginner &bull; Level 1</span>
+            <h3 class="class-preview-card__title">New Dance Program For Beginners</h3>
+            <span class="class-preview-card__more">more &rarr;</span>
           </div>
+        </a>
 
-          <h1 class="hero__title reveal">
-            <span class="hero__title-line">Swing Out</span>
-            <span class="hero__title-line hero__title-accent">Delhi</span>
-          </h1>
-
-          <p class="hero__tagline script reveal">Find your rhythm. Find your people.</p>
-
-          <p class="hero__sub reveal">
-            Delhi NCR's vibrant Lindy Hop &amp; swing dance community. Authentic jazz music, partner connection, and pure social dancing joy — no partner or experience needed.
-          </p>
-
-          <div class="hero__cta reveal">
-            <a class="btn btn--gold btn--glow" href="#whats-on">Find a Class <span aria-hidden="true">&rarr;</span></a>
-            <a class="btn btn--ghost-glass" href="#upcoming-events">Upcoming Events</a>
+        <!-- Card 2 -->
+        <a class="class-preview-card" href="#whats-on" data-rsvp="class" data-rsvp-name="Intermediate Swing">
+          <img src="assets/img/two-spin.jpg" alt="Intermediate swing dancers" loading="lazy" />
+          <div class="class-preview-card__content">
+            <span class="class-preview-card__level">Progression &bull; Level 2</span>
+            <h3 class="class-preview-card__title">Solle Dance Program Is Available Again</h3>
+            <span class="class-preview-card__more">more &rarr;</span>
           </div>
+        </a>
 
-          <div class="hero__perks reveal">
-            <span class="hero__perk">No Partner Required</span>
-            <span class="hero__perk">Absolute Beginners Welcome</span>
-            <span class="hero__perk">Authentic Delhi Community</span>
+        <!-- Card 3 -->
+        <a class="class-preview-card" href="#whats-on" data-rsvp="class" data-rsvp-name="Solo Jazz & Charleston">
+          <img src="assets/img/feet-move.jpg" alt="Solo jazz footwork" loading="lazy" />
+          <div class="class-preview-card__content">
+            <span class="class-preview-card__level">Solo Rhythm &bull; All Levels</span>
+            <h3 class="class-preview-card__title">Rescheduling Hip Hop Classes To May 20</h3>
+            <span class="class-preview-card__more">more &rarr;</span>
           </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee Ticker Tape Ribbon -->
+  <div class="ribbon-ticker" aria-hidden="true">
+    <div class="ribbon-ticker__inner">
+      <span>SWING OUT DELHI</span>
+      <span>&bull;</span>
+      <span>LINDY HOP</span>
+      <span>&bull;</span>
+      <span>AUTHENTIC JAZZ</span>
+      <span>&bull;</span>
+      <span>NO PARTNER REQUIRED</span>
+      <span>&bull;</span>
+      <span>WEEKLY SOCIALS</span>
+      <span>&bull;</span>
+      <span>SWING OUT DELHI</span>
+      <span>&bull;</span>
+      <span>LINDY HOP</span>
+      <span>&bull;</span>
+      <span>AUTHENTIC JAZZ</span>
+      <span>&bull;</span>
+      <span>NO PARTNER REQUIRED</span>
+      <span>&bull;</span>
+      <span>WEEKLY SOCIALS</span>
+      <span>&bull;</span>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- 3 · WEEK SCHEDULE (Behance Screen 5: 5-Column Wireframe Timetable) -->
+    <section class="schedule-section" id="week-schedule">
+      <div class="wrap">
+        <div class="section-head-flex">
+          <div>
+            <p class="kicker kicker--gold">Timetable &bull; May 2026</p>
+            <h2 class="section-title-italic">WEEK SCHEDULE</h2>
+          </div>
+          <a class="link-arrow" href="#whats-on">Full schedule &rarr;</a>
+        </div>
+
+        <div class="schedule-table-wrap">
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>MAY 23</th>
+                <th>MAY 24</th>
+                <th>MAY 25</th>
+                <th>MAY 26</th>
+                <th>MAY 27</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <!-- MAY 23 -->
+                <td>
+                  <div class="sched-slot">
+                    <div class="sched-slot__top">
+                      <span>3:30 - 4:50 PM</span>
+                      <span class="sched-slot__level">ADV</span>
+                    </div>
+                    <div class="sched-slot__title">Jazz &mdash; ALEXX</div>
+                  </div>
+                  <div class="sched-slot">
+                    <div class="sched-slot__top">
+                      <span>3:30 - 4:50 PM</span>
+                      <span class="sched-slot__level">PRO</span>
+                    </div>
+                    <div class="sched-slot__title">Hip Hop &mdash; JUNA</div>
+                  </div>
+                  <div class="sched-slot">
+                    <div class="sched-slot__top">
+                      <span>3:30 - 4:50 PM</span>
+                      <span class="sched-slot__level">ADV</span>
+                    </div>
+                    <div class="sched-slot__title">Modern &mdash; SOLLE</div>
+                  </div>
+                </td>
+
+                <!-- MAY 24 -->
+                <td>
+                  <div class="sched-slot">
+                    <div class="sched-slot__top">
+                      <span>3:30 - 4:50 PM</span>
+                      <span class="sched-slot__level">PRO</span>
+                    </div>
+                    <div class="sched-slot__title">Street &mdash; JIMMY</div>
+                  </div>
+                  <div class="sched-slot">
+                    <div class="sched-slot__top">
+                      <span>3:30 - 4:50 PM</span>
+                      <span class="sched-slot__level">BEG</span>
+                    </div>
+                    <div class="sched-slot__title">Hip Hop &mdash; TAERIN</div>
+                  </div>
+                </td>
+
+                <!-- MAY 25 -->
+                <td>
+                  <div class="sched-slot">
+                    <div class="sched-slot__top">
+                      <span>3:30 - 4:50 PM</span>
+                      <span class="sched-slot__level">BEG</span>
+                    </div>
+                    <div class="sched-slot__title">Jazz-Funk &mdash; YEJIN</div>
+                  </div>
+                </td>
+
+                <!-- MAY 26 -->
+                <td>
+                  <div class="sched-slot">
+                    <div class="sched-slot__top">
+                      <span>3:30 - 4:50 PM</span>
+                      <span class="sched-slot__level">PRO</span>
+                    </div>
+                    <div class="sched-slot__title">Street &mdash; YOUN</div>
+                  </div>
+                  <div class="sched-slot">
+                    <div class="sched-slot__top">
+                      <span>3:30 - 4:50 PM</span>
+                      <span class="sched-slot__level">BEG</span>
+                    </div>
+                    <div class="sched-slot__title">Jazz-Funk &mdash; ONNY</div>
+                  </div>
+                  <div class="sched-slot">
+                    <div class="sched-slot__top">
+                      <span>3:30 - 4:50 PM</span>
+                      <span class="sched-slot__level">ADV</span>
+                    </div>
+                    <div class="sched-slot__title">Hip Hop &mdash; JINWOO</div>
+                  </div>
+                </td>
+
+                <!-- MAY 27 -->
+                <td>
+                  <div class="sched-slot">
+                    <div class="sched-slot__top">
+                      <span>3:30 - 4:50 PM</span>
+                      <span class="sched-slot__level">ADV</span>
+                    </div>
+                    <div class="sched-slot__title">Modern &mdash; SOLLE</div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
+    </section>
 
-      <!-- Floating Video Control Badge -->
-      <div class="hero__video-bar">
-        <button type="button" class="hero__video-btn" id="heroVideoToggle" aria-label="Pause background video" title="Toggle background video playback">
-          <span class="hero__video-icon" id="heroVideoIcon" aria-hidden="true">&#10074;&#10074;</span>
-          <span class="hero__video-label" id="heroVideoLabel">Depot 48 Live &bull; Pause</span>
-        </button>
+    <!-- 4 · LATEST VIDEOS (Behance Screen 5) -->
+    <section class="video-section-wrap" id="latest-videos">
+      <div class="wrap">
+        <div class="section-head-flex">
+          <div>
+            <p class="kicker kicker--gold">Studio &amp; Recaps</p>
+            <h2 class="section-title-italic">LATEST VIDEOS</h2>
+          </div>
+          <a class="link-arrow" href="https://www.instagram.com/swingoutdelhi/" target="_blank" rel="noopener">More videos &rarr;</a>
+        </div>
+
+        <div class="video-showcase">
+          <!-- Large Left Tile -->
+          <div class="video-featured">
+            <video autoplay muted loop playsinline poster="assets/img/video-poster.jpg">
+              <source src="assets/video/dance-hero.mp4" type="video/mp4" />
+              <img src="assets/img/video-poster.jpg" alt="Depot 48 Friday Social" />
+            </video>
+            <div class="video-featured__overlay">
+              <h3 class="video-featured__title">GUMP</h3>
+              <p class="video-featured__sub">Good Plenty (Remix)</p>
+            </div>
+          </div>
+
+          <!-- Stacked Right Tiles -->
+          <div class="video-stacked">
+            <a class="video-stacked__item" href="https://www.instagram.com/swingoutdelhi/" target="_blank" rel="noopener">
+              <img src="assets/img/floor-wide.jpg" alt="Full dance floor at Depot 48" loading="lazy" />
+              <span class="video-stacked__label">DOROCY</span>
+            </a>
+            <a class="video-stacked__item" href="https://www.instagram.com/swingoutdelhi/" target="_blank" rel="noopener">
+              <img src="assets/img/two-laugh.jpg" alt="Two dancers laughing" loading="lazy" />
+              <span class="video-stacked__label">SOLLE</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="video-credits">
+          <span>GUMP | CHOREOGRAPHY</span>
+          <span>DOROCY &amp; SOLLE | CHOREOGRAPHY</span>
+        </div>
       </div>
     </section>
 
@@ -162,27 +349,88 @@
 
     <!-- 3 · COMMUNITY (intro + carousel) -->
     <section class="community" id="community">
-      <div class="wrap community__head reveal">
-        <h2 class="display-2">Our Community</h2>
-        <p class="community__lead">Some moments from the Swing Out Delhi dance floor.</p>
+      <div class="wrap">
+        <div class="community__head reveal">
+          <h2 class="display-2">Our Community</h2>
+          <p class="community__lead">Some moments from the Swing Out Delhi dance floor.</p>
+        </div>
+
+        <!-- Photo carousel -->
+        <div class="carousel" role="group" aria-roledescription="carousel" aria-label="Photos from Swing Out Delhi socials">
+          <ul class="carousel__viewport" id="carouselViewport">
+            <li class="carousel__slide"><figure><img src="assets/img/g-07468.jpg" alt="The whole Swing Out Delhi community together for a group photo at Depot 48" loading="lazy" /><figcaption>The whole crew, together</figcaption></figure></li>
+            <li class="carousel__slide"><figure><img src="assets/img/floor-wide.jpg" alt="A full dance floor at Depot 48 under a disco ball" loading="lazy" /><figcaption>A full floor at Depot 48</figcaption></figure></li>
+            <li class="carousel__slide"><figure><img src="assets/img/two-laugh.jpg" alt="Two friends laughing while dancing together" loading="lazy" /><figcaption>Dancing with friends</figcaption></figure></li>
+            <li class="carousel__slide"><figure><img src="assets/img/two-spin.jpg" alt="Two dancers spinning, hands linked overhead" loading="lazy" /><figcaption>Spins and swing outs</figcaption></figure></li>
+            <li class="carousel__slide"><figure><img src="assets/img/g-07485.jpg" alt="Partners dancing and smiling on the floor" loading="lazy" /><figcaption>On the floor</figcaption></figure></li>
+          </ul>
+
+          <button class="carousel__btn carousel__btn--prev" id="carPrev" type="button" aria-label="Previous photo">&#8249;</button>
+          <button class="carousel__btn carousel__btn--next" id="carNext" type="button" aria-label="Next photo">&#8250;</button>
+
+          <div class="carousel__foot">
+            <p class="carousel__status" id="carStatus" aria-live="polite">01 / 05</p>
+            <p class="carousel__hint">Swipe or use the arrows &middot; <a class="link" href="https://www.instagram.com/swingoutdelhi/" target="_blank" rel="noopener">more on Instagram</a></p>
+          </div>
+        </div>
       </div>
 
-      <!-- Photo carousel -->
-      <div class="carousel" role="group" aria-roledescription="carousel" aria-label="Photos from Swing Out Delhi socials">
-        <ul class="carousel__viewport" id="carouselViewport">
-          <li class="carousel__slide"><figure><img src="assets/img/g-07468.jpg" alt="The whole Swing Out Delhi community together for a group photo at Depot 48" loading="lazy" /><figcaption>The whole crew, together</figcaption></figure></li>
-          <li class="carousel__slide"><figure><img src="assets/img/floor-wide.jpg" alt="A full dance floor at Depot 48 under a disco ball" loading="lazy" /><figcaption>A full floor at Depot 48</figcaption></figure></li>
-          <li class="carousel__slide"><figure><img src="assets/img/two-laugh.jpg" alt="Two friends laughing while dancing together" loading="lazy" /><figcaption>Dancing with friends</figcaption></figure></li>
-          <li class="carousel__slide"><figure><img src="assets/img/two-spin.jpg" alt="Two dancers spinning, hands linked overhead" loading="lazy" /><figcaption>Spins and swing outs</figcaption></figure></li>
-          <li class="carousel__slide"><figure><img src="assets/img/g-07485.jpg" alt="Partners dancing and smiling on the floor" loading="lazy" /><figcaption>On the floor</figcaption></figure></li>
-        </ul>
+      <!-- Community Passes Showcase (Behance Module 852784229) -->
+      <div class="wrap" style="margin-top: 3.5rem;">
+        <div style="max-width: 44rem; margin-bottom: 1.5rem;" class="reveal">
+          <p class="kicker kicker--gold">Community Credentials</p>
+          <h3 class="display-2" style="font-size: clamp(1.5rem, 3.2vw, 2.3rem);">The People Behind the Beat</h3>
+          <p style="color: var(--text-muted); margin: 0;">Organizers, instructors, and dancers shaping Delhi's Lindy Hop family.</p>
+        </div>
 
-        <button class="carousel__btn carousel__btn--prev" id="carPrev" type="button" aria-label="Previous photo">&#8249;</button>
-        <button class="carousel__btn carousel__btn--next" id="carNext" type="button" aria-label="Next photo">&#8250;</button>
+        <div class="passes-grid reveal">
+          <!-- Card 1: Organizer Pass -->
+          <div class="lanyard-card">
+            <div class="lanyard-clip"></div>
+            <div class="lanyard-vertical">ORGANIZER</div>
+            <div class="lanyard-content">
+              <span class="lanyard-brand">SWING OUT DELHI &bull; CORE</span>
+              <h4 class="lanyard-name">SHIVI</h4>
+              <p class="lanyard-role">Founder &amp; Lead Instructor</p>
+              <p class="lanyard-bio">Bringing authentic Lindy Hop to Delhi NCR through high-energy workshops, social dancing, and jazz education.</p>
+            </div>
+            <div class="barcode">
+              <div class="barcode-lines"></div>
+              <div class="barcode-text">PASS ID: SOD-ORG-001 &bull; DELHI NCR</div>
+            </div>
+          </div>
 
-        <div class="carousel__foot wrap">
-          <p class="carousel__status" id="carStatus" aria-live="polite">01 / 05</p>
-          <p class="carousel__hint">Swipe or use the arrows &middot; <a class="link" href="https://www.instagram.com/swingoutdelhi/" target="_blank" rel="noopener">more on Instagram</a></p>
+          <!-- Card 2: Instructor Pass -->
+          <div class="lanyard-card">
+            <div class="lanyard-clip"></div>
+            <div class="lanyard-vertical">INSTRUCTOR</div>
+            <div class="lanyard-content">
+              <span class="lanyard-brand">FACULTY &amp; GUESTS</span>
+              <h4 class="lanyard-name">TEACHING CREW</h4>
+              <p class="lanyard-role">Lindy Hop &amp; Solo Jazz</p>
+              <p class="lanyard-bio">Passionate social dancers teaching core connection, musicality breaks, Charleston kicks, and partner rotation.</p>
+            </div>
+            <div class="barcode">
+              <div class="barcode-lines"></div>
+              <div class="barcode-text">PASS ID: SOD-INS-042 &bull; SWING FACULTY</div>
+            </div>
+          </div>
+
+          <!-- Card 3: Social Dancer Pass -->
+          <div class="lanyard-card">
+            <div class="lanyard-clip"></div>
+            <div class="lanyard-vertical">DANCER PASS</div>
+            <div class="lanyard-content">
+              <span class="lanyard-brand">ALL WELCOME</span>
+              <h4 class="lanyard-name">YOU ON THE FLOOR</h4>
+              <p class="lanyard-role">Social Dancer &bull; Delhi Scene</p>
+              <p class="lanyard-bio">No partner or dance background needed. Show up with sneakers, an open mind, and ready to meet wonderful people.</p>
+            </div>
+            <div class="barcode">
+              <div class="barcode-lines"></div>
+              <div class="barcode-text">PASS ID: SOD-MEMBER &bull; FIND YOUR RHYTHM</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -229,7 +477,7 @@
     <!-- 5 · JAZZ & LIVE MUSIC (ends) -->
     </section>
 
-    <!-- 6 · INSTAGRAM GRID -->
+        <!-- 6 · INSTAGRAM GRID -->
     <section class="ig-section" id="instagram">
       <div class="wrap ig-inner">
         <header class="ig-header reveal">
@@ -264,34 +512,40 @@
     </section>
   </main>
 
-  <footer class="footer">
+    <footer class="footer footer-clean">
     <div class="wrap footer__inner">
       <div class="footer__brand">
-        <img src="assets/img/logo.png" alt="Swing Out Delhi" width="96" height="96" />
-        <p class="footer__tag script">Find your rhythm. Find your people.</p>
+        <span class="brand__text">SWING OUT <em>DELHI</em></span>
+        <p class="footer__tag">Find your rhythm. Find your people.</p>
+        <p style="color: #666; font-size: 0.92rem; margin: 0.6rem 0 0; max-width: 32ch;">Delhi NCR's Lindy Hop &amp; Swing Dance Academy. Beginners welcome, no partner required.</p>
       </div>
-      <nav class="footer__nav" aria-label="Footer">
-        <a href="#whats-on">Classes</a>
-        <a href="#upcoming-events">Events &amp; Socials</a>
-        <a href="#community">Community</a>
-        <a href="#jazz">Jazz &amp; Music</a>
-        <a href="#instagram">Instagram</a>
-        <a href="connect.html">Connect</a>
-        <a href="what-is-swing.html">What is Swing?</a>
-        <a href="shivi.html">Team</a>
-        <a href="volunteer.html">Volunteer</a>
-        <a href="#contact">Contact</a>
+
+      <nav class="footer__nav" aria-label="Services">
+        <p class="footer__connect-title">SERVICES</p>
+        <a href="#upcoming-classes">CLASSES</a>
+        <a href="#week-schedule">SCHEDULE</a>
+        <a href="#upcoming-events">EVENTS &amp; SOCIALS</a>
+        <a href="#latest-videos">VIDEOS</a>
+        <a href="#community">COMMUNITY</a>
       </nav>
+
       <div class="footer__connect">
-        <p class="footer__connect-title">Come say hi</p>
-        <a class="link" href="https://www.instagram.com/swingoutdelhi/" target="_blank" rel="noopener">Instagram</a>
-        <a class="link" href="mailto:swingoutdelhi@gmail.com?subject=WhatsApp%20group%20access">WhatsApp group</a>
-        <a class="link" href="mailto:swingoutdelhi@gmail.com">Email us</a>
+        <p class="footer__connect-title">INFO</p>
+        <a href="what-is-swing.html">WHO WE ARE</a>
+        <a href="shivi.html">TEAM &amp; FOUNDER</a>
+        <a href="volunteer.html">VOLUNTEER</a>
+        <a href="connect.html">CONTACTS</a>
+        <div style="margin-top: 0.8rem;">
+          <a class="social-circle" href="https://www.instagram.com/swingoutdelhi/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+          <a class="social-circle" href="mailto:swingoutdelhi@gmail.com" aria-label="Email">EM</a>
+          <a class="social-circle" href="mailto:swingoutdelhi@gmail.com?subject=WhatsApp%20Access" aria-label="WhatsApp">WA</a>
+        </div>
       </div>
     </div>
+
     <div class="wrap footer__base">
-      <p>&copy; <span id="year">2026</span> Swing Out Delhi &bull; Delhi NCR, India</p>
-      <p class="footer__made">Lindy Hop &bull; Swing &bull; Jazz &bull; Community</p>
+      <p>&copy; <span id="year">2026</span> Swing Out Delhi &bull; All Rights Reserved.</p>
+      <p class="footer__made">Lindy Hop &bull; Swing &bull; Jazz Culture &bull; Delhi NCR</p>
     </div>
   </footer>
 
